@@ -1,0 +1,187 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+#root{
+  background-color: #ffeecc;
+}
+
+.header-elements{
+  background-color: #660000;
+  padding: 3px 8px;
+  border-radius: 5px;
+  color : white;
+}
+.App-Section{
+  padding: 100px 0;
+}
+
+.board{
+  width : 300px;
+  height : 150px;
+  background-color: #C0C0C0;
+  border-radius : 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.board:hover{
+  background-color: #808080;
+  cursor: pointer;
+}
+
+.row-wrap{
+  max-width: 1160px;
+  margin : 0 auto;
+}
+
+.row-inner{
+  display : flex;
+  margin : -25px -25px;
+  flex-wrap: wrap;
+}
+
+.column{
+  padding : 25px 25px;
+}
+
+.add-new-board{
+  margin-top: 40px;
+  border : 0px;
+  padding : 15px 35px;
+  cursor : pointer;
+  background-color: #00ccff;
+  color :white;
+  border-radius: 8px;
+}
+
+.Link, .Link:visited{
+  text-decoration: none;
+  color :black;
+}
+
+.add-new-board:active {
+  transform: scale(0.98);
+  box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+}
+
+.modal-window{
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.7);
+}
+
+.modal-content,.modal-header  {
+  background-color: white;
+  margin: auto;
+  padding: 20px;
+  display:flex;
+  justify-content: space-between;
+  border: 1px solid #888;
+  width: 40%;
+}
+
+.close-button {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-window-active{
+  display : block;
+}
+
+.textbox{
+  width: 200px;
+  border: 2px solid burlywood;
+  border-radius: 3px;
+  padding: 8px;
+}
+
+.tempClass{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.board-item{
+  width: 200px;
+  background-color:aliceblue;
+}
+
+.Add-Card{
+  background-color: black;
+  color: white;
+  padding: 5px 8px;
+  border : 0;
+  cursor:pointer;
+  border-radius: 3px;
+  width : 100%;
+}
+
+.Add-Card:hover{
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.Add-Card:active {
+  transform: scale(0.98);
+  box-shadow: 3px 2px 22px 1px rgba(75, 87, 21, 0.24);
+}
+
+.card{
+    background: rgb(190, 210, 237);
+    border-radius: 5px;
+    padding: 3px 8px;
+    box-shadow: 3px 4px 4px rgb(0 0 0 / 70%);
+    cursor:pointer;
+}
+
+.card + .card{
+  margin-top : 8px;
+}
+
+.card-details{
+  margin :0;
+  font-weight: 400;
+}
+
+.card-description{
+  display:flex;
+  padding : 0 15px;
+  cursor : pointer;
+  background-color : #CCC;
+  align-items:center;
+  border-radius : 8px;
+  height : 75px;
+}
+
+.card-edit-desc{
+  resize : none;
+  height : 100px;
+  border : 2px solid rgb(77, 154, 226);
+  width : 100%;
+}
