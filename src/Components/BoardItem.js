@@ -3,7 +3,7 @@ import Column from './UI/Column'
 import Card from './Card'
 import { connect } from 'react-redux'
 import {EditListName, MoveList } from '../Actions/ListActions'
-import { AddCardAndRef } from '../Actions/CardActions'
+import { AddCardAndRef,MoveCardToList } from '../Actions/CardActions'
 import _,{pickBy} from 'lodash';
 import { DragSource,DropTarget,DragLayer } from 'react-dnd';
 import {getEmptyImage} from 'react-dnd-html5-backend'
@@ -50,7 +50,17 @@ const specDropTarget = {
 
     hover(props, monitor, component) {
 
-        if(monitor.getItemType() !== Types.List){console.log("**************************** return not list tyoe*******************************"); return;}
+        if(monitor.getItemType() !== Types.List){
+            if(monitor.getItemType() === Types.Card){
+                    const dragCardId = monitor.getItem().card.id;
+                    const sourceListId = monitor.getItem().listId;
+                    console.log(props)
+                    if(props.list.cards.indexOf(dragCardId) === -1 && props.list.cards.length === 0)
+                    props.MoveCardToList(dragCardId, sourceListId,  props.list.id, 0);
+            }
+            console.log("**************************** return not list tyoe*******************************"); 
+            return;
+        }
         
         let dragIndex = monitor.getItem().index;
         let hoverIndex = props.index;
@@ -128,8 +138,8 @@ class BoardItem extends React.Component{
         console.log(this.props);
         console.log("list name",this.props.list.name);
         console.log(this.state);
-        //return !_.isEqual(this.props.cards, nextProps.cards) || !_.isEqual(this.state, nextState)
-        return true;
+        return !_.isEqual(this.props.cards, nextProps.cards) || !_.isEqual(this.state, nextState)
+        //return true;
     }
 
     showAddNewCardForm(evt){
@@ -256,7 +266,7 @@ function collectDragLayer(monitor) {
     }
   }
 
-export default connect(mapStateToProps, { EditListName, AddCardAndRef, MoveList })(BoardItem);
+export default connect(mapStateToProps, { EditListName, AddCardAndRef, MoveList, MoveCardToList })(BoardItem);
 
 /*export default function BoardItem(props){
     return (<div>Hi</div>)

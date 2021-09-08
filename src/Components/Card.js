@@ -53,7 +53,8 @@ const dndSpecDropTrgt = {
 			monitor.getItem().index = hoverIndex;
 		}
         else{
-            console.log("*****************************************************************************************")
+            console.log("******************************************while moving cards to other lists***********************************************")
+            console.log("hover index",hoverIndex);
             props.MoveCardToList(dragCardId, sourceListId,  props.listId, hoverIndex);
             //props.MoveCard(hoverCardId, dragCardId,isDownwards);
             monitor.getItem().index = hoverIndex;
@@ -143,8 +144,8 @@ class Card extends React.Component{
             console.log(this.props);
             console.log(this.state);
         
-        //return !_.isEqual(this.props.card, nextProps.card) || !_.isEqual(this.state, nextState)
-        return true;
+        return !_.isEqual(this.props.card, nextProps.card) || !_.isEqual(this.state, nextState)
+        //return true;
     }
 
     component

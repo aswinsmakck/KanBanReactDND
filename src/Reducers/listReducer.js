@@ -55,10 +55,12 @@ console.log("*******************************************************************
     lists.byId[payload.curListId].cards = filteredCards;
 
     let droppedSiblings = lists.byId[payload.droppedListId].cards;
-    droppedSiblings.splice( droppedSiblings.indexOf(payload.hoverCardId), 0 , payload.cardId)
-
-    lists.byId[payload.droppedListId].cards = droppedSiblings;
-
+    //console.log(droppedSiblings.indexOf(payload.hoverCardId));
+    if(droppedSiblings.indexOf(payload.cardId) === -1){
+        droppedSiblings.splice( payload.hoverIndex, 0 , payload.cardId)
+        console.log(droppedSiblings);
+        lists.byId[payload.droppedListId].cards = droppedSiblings;
+    }
 
     //cards.byId[payload.cardId].listId = payload.droppedListId;
     return lists;
@@ -69,9 +71,10 @@ const removeCardRef = (lists, payload) =>{
     let list = lists.byId[payload.listId]
 
     let filteredCards = list.cards.filter(cardId => cardId !== payload.cardId);
-
+    console.log("********************** filtered cards ****************************", filteredCards);
     lists.byId[payload.listId].cards = filteredCards;
 
+    console.log(lists)
     return lists;
 }
 

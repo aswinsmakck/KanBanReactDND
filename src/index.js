@@ -13,7 +13,7 @@ import { HTML5Backend } from 'react-dnd-html5-backend'
 import thunk from 'redux-thunk';
 
 //localStorage.removeItem("boards")
-//https://api.unsplash.com/photos?page=2&per_page=15&client_id=MbMxmkTCMGwEY1GQGDl9Xlc4qwGH6h
+//https://api.unsplash.com/photos?page=2&per_page=15&client_id=mkTCMGwEY1GQGDl9Xlc4qwG
 //localStorage.removeItem("state_kanbanboard")
 //const boards = JSON.parse(localStorage.getItem("boards") || "[]");
 const localStore = JSON.parse(localStorage.getItem("state_kanbanboard") || "{}");

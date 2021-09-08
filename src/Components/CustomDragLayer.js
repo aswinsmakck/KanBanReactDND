@@ -14,6 +14,11 @@ const layerStyles = {
     width: '100%',
     height: '100%'
   };
+
+  const boxStyles = {
+    width : '100px',
+    height : '100px'
+  }
   
   function getItemStyles (props) {
     const { initialOffset, currentOffset } = props;
@@ -25,8 +30,9 @@ const layerStyles = {
   
     // http://www.paulirish.com/2012/why-moving-elements-with-translate-is-better-than-posabs-topleft/
     const { x, y } = currentOffset;
-  
-    var transform = `translate(${x}px, ${y}px)`;
+    const offsetX = parseInt(boxStyles.width.replace("px",""))/2;
+    const offsetY = parseInt(boxStyles.height.replace("px",""))/2;
+    var transform = `translate(${x-offsetX}px, ${y-offsetY}px)`;
   
     return {
       transform: transform,
@@ -42,7 +48,7 @@ const layerStyles = {
       item: monitor.getItem(),
       itemType: monitor.getItemType(),
       initialOffset: monitor.getInitialSourceClientOffset(),
-      currentOffset: monitor.getSourceClientOffset(),
+      currentOffset: monitor.getClientOffset(),
       isDragging: monitor.isDragging()
     }
   }
@@ -51,7 +57,7 @@ const layerStyles = {
     renderItem(type, item) {
       switch (type) {
         case ItemTypes.List:
-          return <div style={{width:"100px", height:"100px", backgroundColor:"red"}}></div>;
+          return <div style={{width: boxStyles.width, height:boxStyles.height, backgroundColor:"red"}}></div>;
         default:
           return null;
       }
