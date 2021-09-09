@@ -51,10 +51,12 @@ const moveCard = (lists, payload) =>{
 const moveCardToList = (lists, payload) => {
 console.log("***************************************************************************************************");
     let curSiblings = lists.byId[payload.curListId].cards;
+    console.log("curSiblings", curSiblings);
     let filteredCards = curSiblings.filter(cardId => cardId !== payload.cardId)
     lists.byId[payload.curListId].cards = filteredCards;
-
+    console.log("filteredCards", filteredCards);
     let droppedSiblings = lists.byId[payload.droppedListId].cards;
+    console.log("droppedSiblings",droppedSiblings)
     //console.log(droppedSiblings.indexOf(payload.hoverCardId));
     if(droppedSiblings.indexOf(payload.cardId) === -1){
         droppedSiblings.splice( payload.hoverIndex, 0 , payload.cardId)

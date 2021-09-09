@@ -55,8 +55,10 @@ const specDropTarget = {
                     const dragCardId = monitor.getItem().card.id;
                     const sourceListId = monitor.getItem().listId;
                     console.log(props)
-                    if(props.list.cards.indexOf(dragCardId) === -1 && props.list.cards.length === 0)
-                    props.MoveCardToList(dragCardId, sourceListId,  props.list.id, 0);
+                    if(sourceListId !== props.list.id && props.list.cards.indexOf(dragCardId) === -1 && props.list.cards.length === 0){
+                        console.log(dragCardId, sourceListId,  props.list.id, 0);
+                        props.MoveCardToList(dragCardId, sourceListId,  props.list.id, 0);
+                    }
             }
             console.log("**************************** return not list tyoe*******************************"); 
             return;
