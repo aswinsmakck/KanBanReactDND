@@ -231,7 +231,6 @@ class BoardItem extends React.Component{
                 </div>
                 ))
                     } 
-                    <CustomeDrag />
             </Column>
         )    
     }

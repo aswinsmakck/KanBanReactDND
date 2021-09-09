@@ -104,6 +104,7 @@ class BoardLists extends React.Component{
                         </Button>
                     </Column>
                 </Row>
+                <CustomeDrag />
             </Section>
         )
     }
